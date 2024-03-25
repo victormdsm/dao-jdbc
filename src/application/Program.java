@@ -11,7 +11,6 @@ import java.util.List;
 
 public class Program {
     public static void main(String[] args) {
-        Connection conn = null;
 
         SellerDao sellerDao = DaoFactory.createSellerDao();
         System.out.println("Testing find by id");
@@ -40,5 +39,10 @@ public class Program {
         seller = sellerDao.findById(1);
         seller.setName("Martha Waine");
         sellerDao.update(seller);
+
+
+        System.out.println("Testing delete");
+        sellerDao.deletById(8);
+
     }
 }
