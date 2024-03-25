@@ -21,11 +21,19 @@ public class Program {
         System.out.println("Testing find by Department");
         Department dep = new Department(1, "Computers");
         List<Seller> sellers = sellerDao.findByDepartment(dep);
-        System.out.println(sellers);
+        for(Seller obj: sellers) {
+            System.out.println(obj);
+        }
 
         System.out.println("Testing Find All");
         List<Seller> sellers2 = sellerDao.findAll();
-        System.out.println(sellers2);
+        for(Seller obj: sellers2) {
+            System.out.println(obj);
+        }
 
+        System.out.println("Insert Seller");
+        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, dep);
+        sellerDao.insert(newSeller);
+        System.out.println("Inserted: " + newSeller);
     }
 }
