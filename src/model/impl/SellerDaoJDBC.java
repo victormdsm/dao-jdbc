@@ -123,8 +123,14 @@ public class SellerDaoJDBC implements SellerDao {
             rs = ps.executeQuery();
             List<Seller> sellers = new ArrayList<>();
             Map<Integer, Department> map = new HashMap<>();
+
             while(rs.next()) {
-                Department dep = instantiateDepartment(rs);
+
+                Department dep = map.get(rs.getInt("DepartmentId"));
+                if(dep == null){
+                    dep = instantiateDepartment(rs);
+                    map.put(rs.getInt("DepartmentId"), dep);
+                }
                 Seller seller = instantiateSeller(rs, dep);
                 sellers.add(seller);
             }

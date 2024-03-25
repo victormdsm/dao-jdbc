@@ -20,12 +20,12 @@ public class Program {
 
         System.out.println("Testing find by Department");
         Department dep = new Department(1, "Computers");
-        List<Seller> seller1 = sellerDao.findByDepartment(dep);
-        System.out.println(seller1);
+        List<Seller> sellers = sellerDao.findByDepartment(dep);
+        System.out.println(sellers);
 
         System.out.println("Testing Find All");
-        List<Seller> seller2 = sellerDao.findAll();
-        System.out.println(seller2);
+        List<Seller> sellers2 = sellerDao.findAll();
+        System.out.println(sellers2);
 
     }
 }
